@@ -1,30 +1,39 @@
-#ifndef SASHAVECTOR_MYVECTOR_H
-#define SASHAVECTOR_MYVECTOR_H
+#ifndef MYVECTOR_H
+#define MYVECTOR_H
 
 
+template<typename T>
 class MyVector {
     int _size;
     int _capacity;
-    int* _elements;
+    T *_elements;
 public:
     MyVector();
+
     explicit MyVector(int capacity);
+
     ~MyVector();
 
     int size() const;
-    void clear();
-    int front() const;
-    int back() const;
+
+    T front() const;
+
+    T back() const;
+
     bool empty() const;
-    void pushBack(int element);
+
+    void pushBack(T element);
+
     void popBack();
 
-    int operator[](int index) const;
-    bool operator==(const MyVector& vector) const;
-    bool operator!=(const MyVector& vector) const;
+    T operator[](int index) const;
+
+    bool operator==(const MyVector &vector) const;
+
+    bool operator!=(const MyVector &vector) const;
 
 
 };
 
 
-#endif //SASHAVECTOR_MYVECTOR_H
+#endif

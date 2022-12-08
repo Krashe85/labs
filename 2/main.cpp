@@ -3,26 +3,22 @@
 #include <fstream>
 #include <vector>
 
-int main(int argc, char* argv[]){
-    if (argc != 3){
-        std::cout << "Failed..." << std::endl;
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        std::cout << "No file." << std::endl;
         return 1;
     };
+
     std::ifstream inp;
-    std::ofstream outp;
-    std::vector<int> vect;
     int i = 0;
     inp.open(argv[1]);
-    outp.open(argv[2]);
 
     unsigned int zero = 0;
     unsigned int one = 0;
-
-    if (inp.is_open()){
-        while(!inp.eof()){
+    if (inp.is_open()) {
+        while (!inp.eof()) {
             inp >> i;
-
-            if (i) {
+            if (i == 1) {
                 one++;
             } else {
                 zero++;
@@ -32,9 +28,5 @@ int main(int argc, char* argv[]){
 
 
     std::cout << zero << " " << one;
-    if(outp.is_open()){
-        outp << zero << ' ' << one;
-        outp.flush();
-    }
     return 0;
 }
